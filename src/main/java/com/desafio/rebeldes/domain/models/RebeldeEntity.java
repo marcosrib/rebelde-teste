@@ -1,5 +1,7 @@
 package com.desafio.rebeldes.domain.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,7 +14,11 @@ import com.desafio.rebeldes.domain.enuns.GeneroEnum;
 
 @Entity
 @Table(name = "rebeldes")
-public class RebeldeEntity {
+public class RebeldeEntity implements  Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8336645530085535342L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -23,6 +29,13 @@ public class RebeldeEntity {
 	private String longitude;
 	private String latitude;
 	private String galaxia;
+
+	public RebeldeEntity() {
+	}
+
+	public RebeldeEntity(Integer id) {
+		this.id = id;
+	}
 
 	public Integer getId() {
 		return id;

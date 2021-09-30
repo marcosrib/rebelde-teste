@@ -1,5 +1,7 @@
 package com.desafio.rebeldes.api.dtos;
 
+import java.util.List;
+
 import com.desafio.rebeldes.domain.enuns.GeneroEnum;
 
 public class RebeldeDTO {
@@ -9,6 +11,8 @@ public class RebeldeDTO {
 	private String longitude;
 	private String latitude;
 	private String galaxia;
+
+	private List<RebeldeItemDTO> Itens;
 
 	public String getNome() {
 		return nome;
@@ -57,5 +61,15 @@ public class RebeldeDTO {
 	public void setGalaxia(String galaxia) {
 		this.galaxia = galaxia;
 	}
+
+	public List<RebeldeItemDTO> getItens() {
+		return Itens;
+	}
+
+	public void setItens(List<RebeldeItemDTO> itens) {
+		Itens = itens;
+	}
+
+
 
 }

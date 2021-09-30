@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.desafio.rebeldes.api.dtos.RebeldeDTO;
+import com.desafio.rebeldes.api.response.Response;
 import com.desafio.rebeldes.domain.models.RebeldeEntity;
 import com.desafio.rebeldes.services.rebelde.RebeldeService;
 
@@ -26,18 +27,8 @@ public class RebeldeController {
 
 	@PostMapping("v1/rebelde")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public RebeldeEntity cadastrar(@RequestBody RebeldeDTO dto) {
-		
-		RebeldeEntity rebelde = new RebeldeEntity();
-		rebelde.setNome(dto.getNome());
-		rebelde.setGalaxia(dto.getGalaxia());
-		rebelde.setGenero(dto.getGenero());
-		rebelde.setIdade(dto.getIdade());
-		rebelde.setLatitude(dto.getLatitude());
-		rebelde.setLongitude(dto.getLongitude());
-		
-		
-		return rebeldeService.criar(rebelde);
+	public 	Response<RebeldeEntity> cadastrar(@RequestBody RebeldeDTO dto) {
+		return rebeldeService.criar(dto);
 		
 	}
 }
