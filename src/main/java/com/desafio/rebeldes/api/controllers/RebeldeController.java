@@ -1,12 +1,14 @@
 package com.desafio.rebeldes.api.controllers;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.desafio.rebeldes.api.dtos.AtualizaLocalizacaoDTO;
 import com.desafio.rebeldes.api.dtos.RebeldeDTO;
 import com.desafio.rebeldes.api.response.Response;
 import com.desafio.rebeldes.domain.models.RebeldeEntity;
@@ -29,6 +31,13 @@ public class RebeldeController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public 	Response<RebeldeEntity> cadastrar(@RequestBody RebeldeDTO dto) {
 		return rebeldeService.criar(dto);
+		
+	}
+	
+	@PatchMapping("v1/rebelde")
+	@ResponseStatus(code = HttpStatus.OK)
+	public 	Response<RebeldeEntity> atualizar(@RequestBody AtualizaLocalizacaoDTO dto) {
+		return rebeldeService.atualizarLocalizacao(dto);
 		
 	}
 }

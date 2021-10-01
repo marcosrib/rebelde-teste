@@ -23,9 +23,6 @@ public class Item implements Serializable{
 	private String nome;
 	private Integer pontos;
 	
-	@OneToMany
-	private List<RebeldeItem> rebeldeItens;
-
 	public Item() {
 	}
 
