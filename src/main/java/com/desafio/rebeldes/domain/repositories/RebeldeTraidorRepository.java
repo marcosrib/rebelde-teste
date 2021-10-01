@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.desafio.rebeldes.domain.models.RebeldeTraidor;
 
 public interface RebeldeTraidorRepository extends CrudRepository<RebeldeTraidor, Integer> {
-	Optional<RebeldeTraidor>  findByRebeldeId(Integer id);
+	Optional<RebeldeTraidor>  findByRebeldeIdAndRebeldeTraidorId(Integer id, Integer idTraidor);
 }

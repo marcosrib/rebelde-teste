@@ -18,6 +18,10 @@ public class RebeldeTraidor {
 	@ManyToOne
 	@JoinColumn(name = "rebelde_id")
 	private RebeldeEntity rebelde;
+	
+	@ManyToOne
+	@JoinColumn(name = "rebelde_traidor_id")
+	private RebeldeEntity rebeldeTraidor;
 
 	public Integer getId() {
 		return id;
@@ -33,6 +37,14 @@ public class RebeldeTraidor {
 
 	public void setRebelde(RebeldeEntity rebelde) {
 		this.rebelde = rebelde;
+	}
+
+	public RebeldeEntity getRebeldeTraidor() {
+		return rebeldeTraidor;
+	}
+
+	public void setRebeldeTraidor(RebeldeEntity rebeldeTraidor) {
+		this.rebeldeTraidor = rebeldeTraidor;
 	}
 	
 	

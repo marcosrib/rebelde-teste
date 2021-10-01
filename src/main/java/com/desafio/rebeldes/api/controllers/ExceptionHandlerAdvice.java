@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.desafio.rebeldes.NotFoundException;
 import com.desafio.rebeldes.api.response.Response;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class ExceptionHandlerAdvice {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@ExceptionHandler(NotFoundException.class)

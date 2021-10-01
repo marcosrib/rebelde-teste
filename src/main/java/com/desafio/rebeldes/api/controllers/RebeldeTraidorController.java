@@ -20,10 +20,10 @@ public class RebeldeTraidorController {
 	}
 
 
-	@PostMapping("v1/rebelde-traidor/{id-rebelde}")
+	@PostMapping("v1/rebelde-traidor/{id-rebelde}/{id-rebelde-traidor}")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void marcarRebeldeTraidor(@PathVariable("id-rebelde") Integer idRebelde) {
-		service.marcarRebeldeTraidor(idRebelde);
+	public void marcarRebeldeTraidor(@PathVariable("id-rebelde") Integer idRebelde,@PathVariable("id-rebelde-traidor") Integer idRebeldeTraidor) {
+		service.marcarRebeldeTraidor(idRebelde, idRebeldeTraidor);
 		
 	}
 

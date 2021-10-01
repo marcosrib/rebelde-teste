@@ -24,15 +24,21 @@ public class RebeldeTraidorServiceImpl implements RebeldeTraidorService {
 
 	@Override
 	@Transactional
-	public void marcarRebeldeTraidor(Integer idRebelde) {
-		Optional<RebeldeTraidor> rebeldeTraidorResultado = repository.findByRebeldeId(idRebelde);
-		if(!rebeldeTraidorResultado.isEmpty()) {
+	public void marcarRebeldeTraidor(Integer idRebelde, Integer idRebeldeTraidor) {
+		Optional<RebeldeTraidor> rebeldeTraidorResultado = repository.findByRebeldeIdAndRebeldeTraidorId(idRebelde, idRebeldeTraidor);
+		if( !rebeldeTraidorResultado.isEmpty() &&
+				idRebeldeTraidor.equals(rebeldeTraidorResultado.get().getRebeldeTraidor().getId())) {
 			throw new NotFoundException("Você já marcou rebelde como traidor!") ;
 		}
 		RebeldeEntity rebeldeEntity = new RebeldeEntity();
 		rebeldeEntity.setId(idRebelde);
+		
+		RebeldeEntity rebeldeEntityTraidor = new RebeldeEntity();
+		rebeldeEntityTraidor.setId(idRebeldeTraidor);
+		
 		RebeldeTraidor rebeldeTraidor = new RebeldeTraidor();
 		rebeldeTraidor.setRebelde(rebeldeEntity);
+		rebeldeTraidor.setRebeldeTraidor(rebeldeEntityTraidor);
 	 repository.save(rebeldeTraidor);
 		
 	} 
